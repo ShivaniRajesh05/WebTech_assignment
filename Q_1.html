@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        
+        .window {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #aaa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+        
+        .title-bar, .menu-bar, .status-bar, .ruler {
+            padding: 5px;
+            cursor: default;
+        }
+        
+        .title-bar {
+            background-color: #0078d4;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+        
+        .menu-bar {
+            background-color: #f0f0f0;
+            display: flex;
+            padding: 0 10px;
+        }
+
+        .menu-bar div {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .ruler {
+            background-color: #f0f0f0;
+            padding: 0 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        .content {
+            flex: 1;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin: 10px;
+            overflow: auto;
+        }
+
+        .status-bar {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+        .status-bar span:last-child {
+            border-left: 1px solid #ccc;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar" onclick="showInfo('title-bar')">
+            <span>Document - WordPad</span>
+            <span>[X]</span>
+        </div>
+        <div class="menu-bar" onclick="showInfo('menu-bar')">
+            <div>File</div>
+            <div>Edit</div>
+            <div>View</div>
+            <div>Insert</div>
+            <div>Format</div>
+            <div>Help</div>
+        </div>
+        <div class="content" contenteditable="true"></div>
+        <div class="status-bar" onclick="showInfo('status-bar')">
+            <span>For Help, press F1</span>
+            <span>NUM</span>
+        </div>
+    </div>
+
+    <script>
+        function showInfo(element) {
+            let info = '';
+            switch(element) {
+                case 'title-bar':
+                    info = 'The title bar displays the name of the document and the application.';
+                    break;
+                case 'menu-bar':
+                    info = 'The menu bar contains main menu options like File, Edit, View, etc.';
+                    break;
+                case 'ruler':
+                    info = 'The ruler helps you set margins, tabs, and indents in your document.';
+                    break;
+                case 'status-bar':
+                    info = 'The status bar provides information about the current state of the document.';
+                    break;
+            }
+            alert(info);
+        }
+    </script>
+</body>
+</html>
