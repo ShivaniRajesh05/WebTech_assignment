@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Maps</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .map {
+            margin: 20px 0;
+        }
+
+        .info {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .link {
+            margin-top: 20px;
+            cursor: pointer;
+            color: #0078d4;
+            text-decoration: underline;
+        }
+
+        .state-list {
+            columns: 2;
+        }
+
+        .state-list li {
+            cursor: pointer;
+            list-style-type: none;
+            padding: 5px 0;
+        }
+
+        .state-list li:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            width: 800px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Maps</h1>
+        
+        <div class="link" onclick="showIndiaMap()">Show India Map</div>
+        <div id="india-map" class="map" style="display:none;">
+            <img src="https://www.mapsofindia.com/images2/india-map-2019.jpg" alt="India Map">
+            <div class="info">
+                <h2>States of India</h2>
+                <ul class="state-list">
+                    <li onclick="showStateInfo('Andhra Pradesh')">Andhra Pradesh</li>
+                    <li onclick="showStateInfo('Arunachal Pradesh')">Arunachal Pradesh</li>
+                    <li onclick="showStateInfo('Assam')">Assam</li>
+                    <li onclick="showStateInfo('Bihar')">Bihar</li>
+                    <li onclick="showStateInfo('Chhattisgarh')">Chhattisgarh</li>
+                    <li onclick="showStateInfo('Goa')">Goa</li>
+                    <li onclick="showStateInfo('Gujarat')">Gujarat</li>
+                    <li onclick="showStateInfo('Haryana')">Haryana</li>
+                    <li onclick="showStateInfo('Himachal Pradesh')">Himachal Pradesh</li>
+                    <li onclick="showStateInfo('Jharkhand')">Jharkhand</li>
+                    <li onclick="showStateInfo('Karnataka')">Karnataka</li>
+                    <li onclick="showStateInfo('Kerala')">Kerala</li>
+                    <li onclick="showStateInfo('Madhya Pradesh')">Madhya Pradesh</li>
+                    <li onclick="showStateInfo('Maharashtra')">Maharashtra</li>
+                    <li onclick="showStateInfo('Manipur')">Manipur</li>
+                    <li onclick="showStateInfo('Meghalaya')">Meghalaya</li>
+                    <li onclick="showStateInfo('Mizoram')">Mizoram</li>
+                    <li onclick="showStateInfo('Nagaland')">Nagaland</li>
+                    <li onclick="showStateInfo('Odisha')">Odisha</li>
+                    <li onclick="showStateInfo('Punjab')">Punjab</li>
+                    <li onclick="showStateInfo('Rajasthan')">Rajasthan</li>
+                    <li onclick="showStateInfo('Sikkim')">Sikkim</li>
+                    <li onclick="showStateInfo('Tamil Nadu')">Tamil Nadu</li>
+                    <li onclick="showStateInfo('Telangana')">Telangana</li>
+                    <li onclick="showStateInfo('Tripura')">Tripura</li>
+                    <li onclick="showStateInfo('Uttar Pradesh')">Uttar Pradesh</li>
+                    <li onclick="showStateInfo('Uttarakhand')">Uttarakhand</li>
+                    <li onclick="showStateInfo('West Bengal')">West Bengal</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="link" onclick="showWorldMap()">Show World Map</div>
+        <div id="world-map" class="map" style="display:none;">
+            <img src="https://cdn.britannica.com/37/245037-050-79129D52/world-map-continents-oceans.jpg" alt="World Map">
+        </div>
+    </div>
+
+    <script>
+        function showIndiaMap() {
+            document.getElementById('world-map').style.display = 'none';
+        }
+
+        function showWorldMap() {
+            document.getElementById('world-map').style.display = 'none';
+        }
+
+        function showStateInfo(state) {
+            let info = '';
+            switch(state) {
+                case 'Andhra Pradesh':
+                    info = 'Andhra Pradesh is known for its rich culture and history, including famous sites like the Tirupati Temple.';
+                    break;
+                case 'Arunachal Pradesh':
+                    info = 'Arunachal Pradesh, located in the northeastern part of India, is known for its diverse ethnic groups and unique culture.';
+                    break;
+                case 'Assam':
+                    info = 'Assam is famous for its tea plantations and the Kaziranga National Park, home to the one-horned rhinoceros.';
+                    break;
+                case 'Bihar':
+                    info = 'Bihar is a state with a rich historical legacy, including ancient universities like Nalanda and significant Buddhist sites.';
+                    break;
+                case 'Chhattisgarh':
+                    info = 'Chhattisgarh is known for its rich mineral resources and vibrant tribal culture.';
+                    break;
+                case 'Goa':
+                    info = 'Goa is renowned for its beautiful beaches, Portuguese-influenced architecture, and vibrant nightlife.';
+                    break;
+                case 'Gujarat':
+                    info = 'Gujarat is known for its diverse culture, historic sites like the Gir National Park, and being the birthplace of Mahatma Gandhi.';
+                    break;
+                case 'Haryana':
+                    info = 'Haryana is a state in northern India known for its agriculture and the historic city of Kurukshetra.';
+                    break;
+                case 'Himachal Pradesh':
+                    info = 'Himachal Pradesh, located in the Himalayas, is famous for its scenic beauty and popular hill stations like Shimla and Manali.';
+                    break;
+                case 'Jharkhand':
+                    info = 'Jharkhand is rich in minerals and known for its dense forests, waterfalls, and wildlife sanctuaries.';
+                    break;
+                case 'Karnataka':
+                    info = 'Karnataka is a state in the southwestern region of India known for its technology hub, Bengaluru, and historical sites like Hampi.';
+                    break;
+                case 'Kerala':
+                    info = 'Kerala, located in southern India, is famous for its backwaters, ayurvedic treatments, and beautiful landscapes.';
+                    break;
+                case 'Madhya Pradesh':
+                    info = 'Madhya Pradesh, in central India, is known for its ancient temples, forts, and rich cultural heritage.';
+                    break;
+                case 'Maharashtra':
+                    info = 'Maharashtra is a state in the western region of India, known for its capital city Mumbai, and historic sites like Ajanta and Ellora caves.';
+                    break;
+                case 'Manipur':
+                    info = 'Manipur, in northeastern India, is known for its classical dance form and beautiful landscapes.';
+                    break;
+                case 'Meghalaya':
+                    info = 'Meghalaya, meaning "abode of clouds," is known for its high rainfall, living root bridges, and diverse flora and fauna.';
+                    break;
+                case 'Mizoram':
+                    info = 'Mizoram, located in northeastern India, is known for its scenic landscapes and vibrant tribal culture.';
+                    break;
+                case 'Nagaland':
+                    info = 'Nagaland, in northeastern India, is known for its rich tribal culture and the famous Hornbill Festival.';
+                    break;
+                case 'Odisha':
+                    info = 'Odisha, on the eastern coast of India, is known for its ancient temples, beautiful beaches, and classical dance form Odissi.';
+                    break;
+                case 'Punjab':
+                    info = 'Punjab, in northern India, is known for its vibrant culture, cuisine, and the Golden Temple in Amritsar.';
+                    break;
+                case 'Rajasthan':
+                    info = 'Rajasthan is famous for its royal heritage, majestic forts, palaces, and desert landscapes.';
+                    break;
+                case 'Sikkim':
+                    info = 'Sikkim, located in the Himalayas, is known for its biodiversity, monasteries, and beautiful mountain ranges.';
+                    break;
+                case 'Tamil Nadu':
+                    info = 'Tamil Nadu, in southern India, is known for its Dravidian-style temples, classical music and dance, and rich cultural heritage.';
+                    break;
+                case 'Telangana':
+                    info = 'Telangana, located in southern India, is known for its rich history, vibrant culture, and landmarks like the Charminar in Hyderabad.';
+                    break;
+                case 'Tripura':
+                    info = 'Tripura, located in northeastern India, is known for its rich cultural heritage, diverse tribal communities, and natural beauty.';
+                    break;
+                case 'Uttar Pradesh':
+                    info = 'Uttar Pradesh, in northern India, is known for its historical monuments like the Taj Mahal in Agra, and religious sites like Varanasi and Ayodhya.';
+                    break;
+                case 'Uttarakhand':
+                    info = 'Uttarakhand, situated in the Himalayan region, is known for its scenic beauty, pilgrimage sites like the Char Dham, and adventure sports like trekking and rafting.';
+                    break;
+                case 'West Bengal':
+                    info = 'West Bengal, in eastern India, is known for its cultural richness, famous festivals like Durga Puja, and landmarks like the Victoria Memorial in Kolkata.';
+                    break;
+                default:
+                    info = 'Information not available.';
+            }
+            document.querySelector('.info').innerHTML = <p>${state}: ${info}</p>;
+        }
+    </script>
+</body>
+</html>
